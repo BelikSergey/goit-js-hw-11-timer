@@ -1,11 +1,11 @@
-const refs = {
-    // timer: document.querySelector('#timer-1'),
-    days : document.querySelector('[data-value="days"]'),
-    hours: document.querySelector('[data-value="hours"]'),
-    mins: document.querySelector('[data-value="mins"]'),
-    secs: document.querySelector('[data-value="secs"]'),
+// const refs = {
+//     // timer: document.querySelector('#timer-1'),
+//     days : document.querySelector('[data-value="days"]'),
+//     hours: document.querySelector('[data-value="hours"]'),
+//     mins: document.querySelector('[data-value="mins"]'),
+//     secs: document.querySelector('[data-value="secs"]'),
     
-};
+// };
    
 const text = document.querySelector('[data-text="text"]');
 const button = document.querySelector('[data-button="button"]');
@@ -16,7 +16,7 @@ button.addEventListener('click', messageOnClik);
 
 
 class CountdownTimer {
-    constructor({ targetDate, selector, ontick }) {
+    constructor({ targetDate, selector }) {
         this.selector = document.querySelector(selector)
         this.targetDate = targetDate;
         // this.ontick = ontick;
@@ -24,7 +24,9 @@ class CountdownTimer {
         this.start();
         this.updateTimer();
     }
-    start () {
+     
+    start() {
+    
         setInterval(() => {
             const currentTime = Date.now();
             const deltaTime = this.targetDate - currentTime;
@@ -43,7 +45,15 @@ class CountdownTimer {
                 const secs = pad(Math.floor((time % (1000 * 60)) / 1000));
                 return { days, hours, mins, secs };     
         };
-            function updateTimer({ days, hours, mins, secs }) {
+        function updateTimer({ days, hours, mins, secs }) {
+                const refs = {
+                    // timer: document.querySelector('#timer-1'),
+                    days : document.querySelector('[data-value="days"]'),
+                    hours: document.querySelector('[data-value="hours"]'),
+                    mins: document.querySelector('[data-value="mins"]'),
+                    secs: document.querySelector('[data-value="secs"]'),
+    
+                        };
                 refs.days.textContent = days;
                 refs.hours.textContent = hours;
                 refs.mins.textContent = mins;
