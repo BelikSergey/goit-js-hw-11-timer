@@ -22,7 +22,7 @@ class CountdownTimer {
         // this.ontick = ontick;
         // this.updateTimer();
         this.start();
-        this.updateTimer();
+        // this.updateTimer();
     }
      
     start() {
